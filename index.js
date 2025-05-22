@@ -1,0 +1,58 @@
+import e from "express"
+import express from "express"
+
+
+const app=express()
+
+app.use(express.json()) // json formate
+
+let users=[]
+
+
+// app.get("/user",(req,res)=>{
+
+//     res.send([{name:"hello world"},{class:"i"}])
+// })
+
+app.get("/",(req,res)=>{
+
+    res.send(new Date().toString())
+})
+
+app.post("/user",(req,res)=>{
+res.send({user:req.body,message:"user added successfullyt"})
+users.push({...req.body, id:Date.now().toString(36)})
+
+console.log("req",req.body)
+})
+
+app.delete("/user/:id",(req,res)=>{
+    const {id}=req.params
+    console.log(id)
+// const index=users.findIndex(item=>item.id === Number(id))
+// users.splice(index,1)
+users=users.filter(item=>item.id !== id)
+res.send({message:"user deleted successfully"})
+
+
+})
+
+app.put("/user/:id",(req,res)=>{
+const {id}=req.params
+console.log(id)
+const index=users.findIndex(item=>item.id===id)
+console.log(index)
+users.splice(index,1,{...req.body,id})
+
+
+res.send({id,message:"user updated succssfully"})
+})
+
+app.get("/user",(req,res)=>{
+res.send(users)
+})
+
+app.listen(3000,()=>{
+console.log("server is running on port 3000")
+})
+
