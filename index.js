@@ -1,6 +1,6 @@
-import e from "express"
+// import e from "express"
 import express from "express"
-
+import { userschema } from "./schema/index.js"
 
 const app=express()
 
@@ -13,17 +13,29 @@ let users=[]
 
 //     res.send([{name:"hello world"},{class:"i"}])
 // })
+app.use('/',(req,res,next)=>{
+    console.log("middlware",req)
+    next()
+})
 
 app.get("/",(req,res)=>{
 
     res.send(new Date().toString())
 })
 
-app.post("/user",(req,res)=>{
-res.send({user:req.body,message:"user added successfullyt"})
-users.push({...req.body, id:Date.now().toString(36)})
+app.post("/user",async(req,res)=>{
 
-console.log("req",req.body)
+    try {
+       await userschema.validateAsync(req.body)
+        res.status(201).send({status:201,user:req.body,message:"user added successfullyt"})
+         users.push({...req.body, id:Date.now().toString(36)})
+         console.log("req",req.body)
+    }
+     catch (error) {
+        console.log(error)
+       res.status(400).send({error:error.details,status:400,message:"something went wrong"})
+    }
+
 })
 
 app.delete("/user/:id",(req,res)=>{
@@ -45,7 +57,7 @@ console.log(index)
 users.splice(index,1,{...req.body,id})
 
 
-res.send({id,message:"user updated succssfully"})
+res.send({id,message:"user updated succssfully"} )
 })
 
 app.get("/user",(req,res)=>{
