@@ -1,7 +1,7 @@
 // import e from "express"
 import express from "express"
 import { userschema } from "./schema/index.js"
-import user from './routes/index.js'
+import mainRoutes from './routes/index.js'
 import mongoose from "./db/index.js"
 
 const app=express()
@@ -13,7 +13,7 @@ mongoose.connection.on("open",()=>{
 app.use(express.json()) // json formate
 
 
-app.use("/api",user) // base endpoint api
+app.use("/api",mainRoutes) // base endpoint api
 
 
 
