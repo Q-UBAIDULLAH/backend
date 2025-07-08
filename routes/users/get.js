@@ -5,8 +5,8 @@ const getuser=async(req,res)=>{
 try{
 
 const users=await User.find({
-    email:"osman@gmail.com",
-    username:"osman"
+    // email:"osman@gmail.com", // more query be hen iski mongoose
+    // username:"osman"
 })
 
 res.status(200).send({status:200,users})
