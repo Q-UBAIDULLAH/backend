@@ -4,12 +4,12 @@ import getuser from "./get.js"
 import deleteuser from "./delete.js"
 import updateuser from "./update.js"
 import loginuser from "./login.js"
-
+import tokenverification from "../../config/tokenverification.js"
 
 
 const router=express.Router()
 
-router.get('/',getuser)
+router.get('/',tokenverification,getuser)
 router.post('/',postuser)
 router.delete('/:id',deleteuser)
 router.put('/:id',updateuser)
