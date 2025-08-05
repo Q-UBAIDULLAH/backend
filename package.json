@@ -1,16 +1,27 @@
 {
+<<<<<<< HEAD
   "name": "node-practice",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js"
+=======
+  "name": "backend-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+>>>>>>> 56441f2 (created)
   },
   "type": "module",
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^6.0.0",
     "dotenv": "^17.0.1",
     "express": "^5.1.0",
@@ -18,5 +29,18 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.1",
     "nodemon": "^3.1.10"
+=======
+    "cloudinary": "^2.7.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "fs-extra": "^11.3.0",
+    "helmet": "^8.1.0",
+    "mongoose": "^8.16.4",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.5",
+    "nodemon": "^3.1.10",
+    "path": "^0.12.7",
+    "sharp": "^0.34.3"
+>>>>>>> 56441f2 (created)
   }
 }

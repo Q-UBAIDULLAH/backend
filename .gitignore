@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 .env
 /node_modules
+=======
+/node_modules
+.env
+>>>>>>> 56441f2 (created)
