@@ -1,16 +1,12 @@
-<<<<<<< HEAD
+
 // import e from "express"
 import express from "express"
 import { userschema } from "./schema/index.js"
 import mainRoutes from './routes/index.js'
 import mongoose from "./db/index.js"
-
-const app=express()
-=======
-import express from "express"
 import helmet from "helmet"
 import routes from './src/routes/index.js'
-import mongoose from "mongoose"
+
 import { ENV } from "./src/constant/index.js"
 
 const app=express()
@@ -19,12 +15,12 @@ app.use(express.json())
 
 const url=`mongodb+srv://${ENV.DB_USER}:${ENV.DB_PASSWORD}@qazicluster.uvdks6f.mongodb.net/${ENV.DB_NAME}?retryWrites=true&w=majority&appName=QaziCluster`
 mongoose.connect(url)
->>>>>>> 56441f2 (created)
+
 
 mongoose.connection.on("open",()=>{
     console.log("Database Connected")
 })
-<<<<<<< HEAD
+
 
 app.use(express.json()) // json formate
 
@@ -91,11 +87,11 @@ app.get("/",(req,res)=>{
 // res.send(users)
 // })
 
-app.listen(3000,()=>{
-console.log("server is running on port 3000")
-})
+// app.listen(3000,()=>{
+// console.log("server is running on port 3000")
+// })
 
-=======
+
 app.get("/",(req,res)=>{
 res.send("hello world")
 })
@@ -107,4 +103,4 @@ app.use('/api',routes)
 app.listen(4000,()=>{
     console.log("server is running on PORT 4000")
 })
->>>>>>> 56441f2 (created)
+

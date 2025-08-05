@@ -21,6 +21,7 @@ const userschema= new mongoose.Schema({
 }
 )
 
-const User=mongoose.model('user',userschema) //model ka schema bna liya he or model be create krliya he
+// const User=mongoose.model('user',userschema) //model ka schema bna liya he or model be create krliya he
+const User = mongoose.models.user || mongoose.model('user', userschema)
 
 export default User
